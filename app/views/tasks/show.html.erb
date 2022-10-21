@@ -10,6 +10,13 @@
   <%= @task.finish_before %>
 </p>
 
+<strong>Tags:</strong>
+<% @task.categories.each do |category|%>
+  <%= link_to category do %>
+    <span><%= category.title%></span>
+  <% end %> 
+<% end %>
+
 <p>
   <%= check_box_tag @task.checked %> 
   <span>Done</span>

@@ -1,0 +1,22 @@
+<p>
+  <strong>Finish before:</strong>
+  <%= task.finish_before %>
+</p>
+
+<p>
+  <%= task.body %>
+</p>
+
+<strong>Tags:</strong>
+<% task.categories.each do |category|%>
+  <%= link_to category do %>
+    <span><%= category.title%></span>
+  <% end %> 
+<% end %>
+
+<p>
+  <%= check_box_tag task.checked %> 
+  <span>Done</span>
+</p>
+
+<%= link_to 'Edit', edit_task_path(task) %>

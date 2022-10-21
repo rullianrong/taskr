@@ -22,7 +22,8 @@ class TasksController < ApplicationController
 
   # POST /tasks
   def create
-    @task = current_user.tasks.build(task_params)
+    @task = current_user.tasks.build(task_params.except(:categories))
+    create_or_delete_tasks_categories(@task, params[:task][:categories])
 
     if @task.save
       redirect_to @task, notice: 'Task was successfully created.'
@@ -33,7 +34,9 @@ class TasksController < ApplicationController
 
   # PATCH/PUT /tasks/1
   def update
-    if @task.update(task_params)
+    create_or_delete_tasks_categories(@task, params[:task][:categories])
+
+    if @task.update(task_params.except(:categories))
       redirect_to @task, notice: 'Task was successfully updated.'
     else
       render :edit
@@ -47,6 +50,15 @@ class TasksController < ApplicationController
   end
 
   private
+    def create_or_delete_tasks_categories(task, categories)
+      task.todos.destroy_all
+      categories = categories.strip.split(',')
+
+      categories.each do |category|
+        task.categories << Category.find_or_create_by(title: category.titleize.strip)
+      end
+    end
+
     # Use callbacks to share common setup or constraints between actions.
     def set_task
       @task = Task.find(params[:id])
@@ -54,6 +66,6 @@ class TasksController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def task_params
-      params.require(:task).permit(:body, :finish_before, :checked, :user_id)
+      params.require(:task).permit(:body, :finish_before, :checked, :categories)
     end
 end

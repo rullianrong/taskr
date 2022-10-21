@@ -21,6 +21,11 @@
     <%= form.date_select :finish_before %>
   </div>
 
+  <div>
+    <%= form.label "Categories:" %>
+    <%= form.text_field :categories, value: task.categories.map(&:title).join(',') %>
+  </div>
+
   <div class="actions">
     <%= form.submit %>
   </div>
