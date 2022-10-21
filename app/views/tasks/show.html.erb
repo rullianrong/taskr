@@ -11,13 +11,8 @@
 </p>
 
 <p>
-  <strong>Checked:</strong>
-  <%= @task.checked %>
-</p>
-
-<p>
-  <strong>User:</strong>
-  <%= @task.user_id %>
+  <%= check_box_tag @task.checked %> 
+  <span>Done</span>
 </p>
 
 <%= link_to 'Edit', edit_task_path(@task) %> |
