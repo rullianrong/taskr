@@ -1,5 +1,4 @@
 class TasksController < ApplicationController
-  before_action :authenticate_user!
   before_action :set_task, only: [:show, :edit, :update, :destroy]
 
   # GET /tasks
@@ -26,7 +25,7 @@ class TasksController < ApplicationController
     create_or_delete_tasks_categories(@task, params[:task][:categories])
 
     if @task.save
-      redirect_to @task, notice: 'Task was successfully created.'
+      redirect_to @task, notice: 'Task created.'
     else
       render :new
     end
@@ -37,7 +36,7 @@ class TasksController < ApplicationController
     create_or_delete_tasks_categories(@task, params[:task][:categories])
 
     if @task.update(task_params.except(:categories))
-      redirect_to @task, notice: 'Task was successfully updated.'
+      redirect_to @task, notice: 'Task updated.'
     else
       render :edit
     end
@@ -46,7 +45,7 @@ class TasksController < ApplicationController
   # DELETE /tasks/1
   def destroy
     @task.destroy
-    redirect_to tasks_url, notice: 'Task was successfully destroyed.'
+    redirect_to tasks_url, notice: 'Task deleted.'
   end
 
   private
@@ -55,13 +54,13 @@ class TasksController < ApplicationController
       categories = categories.strip.split(',')
 
       categories.each do |category|
-        task.categories << Category.find_or_create_by(title: category.titleize.strip)
+        task.categories << current_user.categories.find_or_create_by(title: category.titleize.strip)
       end
     end
 
     # Use callbacks to share common setup or constraints between actions.
     def set_task
-      @task = Task.find(params[:id])
+      @task = current_user.tasks.find(params[:id])
     end
 
     # Only allow a list of trusted parameters through.

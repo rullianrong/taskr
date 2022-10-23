@@ -1,4 +1,7 @@
 class Category < ApplicationRecord
+  validates :title, presence: true
+
+  belongs_to :user
   has_many :todos, dependent: :destroy
   has_many :tasks, through: :todos
 
@@ -6,6 +9,6 @@ class Category < ApplicationRecord
 
   private
   def capitalize_attributes
-    self.title = title.titleize 
+    self.title = title.titleize.strip 
   end
 end
