@@ -1,26 +1,27 @@
 <p id="notice"><%= notice %></p>
+<%= link_to 'Categories', categories_path %> |
+<%= link_to 'Tasks', tasks_path %>
 
-<p>
-  <strong>Body:</strong>
-  <%= @task.body %>
-</p>
 
 <p>
   <strong>Finish before:</strong>
   <%= @task.finish_before %>
 </p>
 
-<strong>Tags:</strong>
+<p>
+  <%= @task.body %>
+</p>
+
+<strong>Categories:</strong>
 <% @task.categories.each do |category|%>
   <%= link_to category do %>
     <span><%= category.title%></span>
   <% end %> 
 <% end %>
 
-<p>
-  <%= check_box_tag @task.checked %> 
-  <span>Done</span>
-</p>
+<br>
+<br>
 
 <%= link_to 'Edit', edit_task_path(@task) %> |
-<%= link_to 'Back', tasks_path %>
+<%= link_to 'Remove', @task, method: :delete, data: { confirm: 'Remove this task?' } %>
+

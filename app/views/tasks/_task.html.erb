@@ -7,16 +7,15 @@
   <%= task.body %>
 </p>
 
-<strong>Tags:</strong>
+<strong>Categories:</strong>
 <% task.categories.each do |category|%>
   <%= link_to category do %>
     <span><%= category.title%></span>
   <% end %> 
 <% end %>
 
-<p>
-  <%= check_box_tag task.checked %> 
-  <span>Done</span>
-</p>
+<br>
+<br>
 
-<%= link_to 'Edit', edit_task_path(task) %>
+<%= link_to 'Edit task', edit_task_path(task) %> |
+<%= link_to 'Remove', @task, method: :delete, data: { confirm: 'Remove this task?' } %>
