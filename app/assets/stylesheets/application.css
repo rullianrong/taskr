@@ -13,10 +13,18 @@
  *= require_tree .
  *= require_self
  */
-
+ :root {
+   --primary: #ee3e38;
+   --primary-light: #FF8787;
+   --secondary: #293462;
+   --light: #fefefe;
+ }
+body {
+   background-color: var(--secondary);
+}
 
 header {
-    background-color: #ee3e38;
+    background-color: var(--primary);
     max-height: 100px;
     padding-left: 80px;
     padding-right: 100px;
@@ -24,7 +32,7 @@ header {
 
  a {
     text-decoration: none;
-    color: black;
+
  }
 
 .logo {
@@ -43,9 +51,47 @@ header {
  }
 
  .nav-header {
-    gap: 10px
+    gap: 20px
  }
 
  .content {
-    background-color: #FFDEDE;
+    background-color: var(--light);
+ }
+
+ 
+ .content-lgn {
+   max-width: 500px;
+   padding: 30px;
+   border-radius: 10px;
+ }
+
+ .button {
+   background-color: var(--secondary);
+   border: 2px solid var(--secondary);
+   font-weight: 500;
+   height: 30px;
+   border-radius: 3px;
+   transition: background-color .3s, border .3s;
+ }
+
+ .button:hover {
+   background-color: var(--primary-light);
+   border: 2px solid var(--primary-light);
+ }
+
+ .button a {
+   color: var(--primary-light);
+ }
+
+ .button a:hover {
+   color: var(--secondary);
+ }
+ 
+ .action-button {
+   color: var(--light);
+   width: 80%;
+   min-width: 100px;
+   background-color: var(--primary);
+   border: none;
+   justify-self: center;
  }
