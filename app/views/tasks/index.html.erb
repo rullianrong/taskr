@@ -1,27 +1,18 @@
-<p id="notice"><%= notice %></p>
-<h1>Tasks</h1>
+<div class="mb-3 d-flex justify-content-center">
+    <button type="button" class="button">
+        <%= link_to "Add Task", new_task_path %>
+    </button>
+  </div>
+<div class="container content">
 
-<table>
-  <thead>
-    <tr>
-      <th>Task</th>
-      <th>Finish before</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+  <div class="row">
+    <div class="col-4 category">
+      <%= render 'partials/categories' %>
+    </div>
+    <div class="col-8">
+      <h3>Tasks due for today:</h3>
+    </div>
+  </div>
+</div>
 
-  <tbody>
-    <% @tasks.each do |task| %>
-      <tr>
-        <td><%= link_to  task.body, task %></td>
-        <td><%= task.finish_before %></td>
-        <td><%= link_to 'Edit', edit_task_path(task) %></td>
-        <td><%= link_to 'Remove', task, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
 
-<br>
-
-<%= link_to 'New Task', new_task_path %>

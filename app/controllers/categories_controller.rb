@@ -43,7 +43,7 @@ class CategoriesController < ApplicationController
   # DELETE /categories/1
   def destroy
     @category.destroy
-    redirect_to categories_url, notice: 'Category deleted.'
+    redirect_to tasks_path, notice: 'Category deleted.'
   end
 
   private

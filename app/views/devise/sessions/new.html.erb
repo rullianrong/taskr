@@ -1,6 +1,8 @@
 <div class="container content content-lgn">
   <h3 class="mb-4">Login</h3>
-
+  <% if resource.errors.empty?%>
+    <%= render 'partials/messages' %>
+  <% end %>
   <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
     <div class="field mb-3">
       <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control", placeholder: "Email" %>

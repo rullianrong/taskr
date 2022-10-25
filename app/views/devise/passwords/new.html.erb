@@ -1,11 +1,10 @@
 <div class="container content content-lgn">
   <h3 class="mb-4">Forgot your password?</h3>
-
+  <%= devise_error_messages! %>
   <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
-    <%= render "devise/shared/error_messages", resource: resource %>
-
     <div class="field mb-3">
       <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control", placeholder: "Email" %>
+      <p class="form-text">Please enter your email. The reset password link will be sent to this email.</p>
     </div>
 
     <div class="actions d-flex justify-content-center">

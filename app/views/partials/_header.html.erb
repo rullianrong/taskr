@@ -1,12 +1,8 @@
 <header class="d-flex flex-wrap align-items-center justify-content-between justify-content-md-between py-3 mb-4">
-<a href="<%= @root_path %>" class="d-flex align-items-center col-md-3 mb-2 mb-md-0 text-dark text-decoration-none">
+<a href="<%= user_signed_in? ? authenticated_root_path : unauthenticated_root_path %>" class="d-flex align-items-center col-md-3 mb-2 mb-md-0 text-dark text-decoration-none">
     <%= image_tag "taskr_logo.png", class: "logo" %>
 </a>
 <% if user_signed_in? %>
-    <ul class="nav-header nav col-12 col-md-auto mb-2 justify-content-start mb-md-0">
-        <li><a href="#" class="font-weight-bold nav-link px-2">Categories</a></li>
-        <li><a href="#" class="font-weight-bold nav-link px-2">Tasks</a></li>
-    </ul>
     <div class="col-md-3 text-end">
         <button type="button" class="button">
             <%= link_to "Logout", destroy_user_session_path, :method => :delete %>
@@ -23,3 +19,4 @@
     </div>
 <% end %>
 </header>
+
