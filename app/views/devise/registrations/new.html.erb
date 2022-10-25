@@ -1,29 +1,33 @@
-<h2>Sign up</h2>
+<div class="container content content-lgn">
+  <h3 class="mb-4">Register</h3>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
+  <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+    <%= render "devise/shared/error_messages", resource: resource %>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
+    <div class="field mb-3">
+      <%= f.label :email, class:"form-label" %>
+      <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control", placeholder: "email_name@domain.com" %>
+    </div>
 
-  <div class="field">
-    <%= f.label :password %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
-  </div>
+    <div class="field mb-3">
+      <%= f.label :password, class:"form-label" %>
+      <%= f.password_field :password, autocomplete: "new-password", class: "form-control", placeholder: "******" %>
+      <div class="form-text">
+      Your password must be 6-20 characters long.
+      </div>
+    </div>
 
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
+    <div class="field mb-4">
+      <%= f.label :password_confirmation %>
+      <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "form-control", placeholder: "******" %>
+    </div>
 
-  <div class="actions">
-    <%= f.submit "Sign up" %>
-  </div>
-<% end %>
-
-<%= render "devise/shared/links" %>
+    <div class="actions d-flex flex-column justify-content-center align-items-center">
+      <%= f.submit "Sign up", class: "button action-button" %>
+      <div>
+        <span class="form-text">Already have an account?</span>
+        <%= link_to "Log in", new_session_path(resource_name) %>
+      </div>
+    </div>
+  <% end %>
+</div>
