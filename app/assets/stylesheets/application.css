@@ -18,6 +18,7 @@
    --primary-light: #FF8787;
    --secondary: #293462;
    --light: #fefefe;
+   --grey: #EFEFEF;
  }
 body {
    background-color: var(--secondary);
@@ -77,28 +78,6 @@ li {
  .content-lgn {
    max-width: 500px;
  }
-
- .button {
-   background-color: var(--secondary);
-   border: 2px solid var(--secondary);
-   font-weight: 500;
-   height: 30px;
-   border-radius: 3px;
-   transition: background-color .3s, border .3s;
- }
-
- .button:hover {
-   background-color: var(--primary-light);
-   border: 2px solid var(--primary-light);
- }
-
- .button a {
-   color: var(--primary-light);
- }
-
- .button a:hover {
-   color: var(--secondary);
- }
  
  .action-button {
    color: var(--light);
@@ -140,9 +119,45 @@ li {
 
 /* categories */
 .category {
-  border-right: 2px solid var(--secondary)
+  border-right: 2px solid var(--secondary);
 }
 
 .category a {
-  color: var(--primary)
+  color: var(--primary);
+  border-radius: 3px;
+  padding: 3px 5px;
+  transition: background-color .3s;
+}
+
+.category a:hover {
+  color: var(--secondary);
+  background-color: var(--grey);
+}
+
+.plus-icon {
+  font-size: 1.2rem;
+  height: auto;
+ }
+
+ 
+ .button {
+  background-color: var(--secondary);
+  border: 2px solid var(--secondary);
+  font-weight: 500;
+  height: 30px;
+  border-radius: 3px;
+  transition: background-color .3s, border .3s;
+}
+
+.button:hover {
+  background-color: var(--primary-light);
+  border: 2px solid var(--primary-light);
+}
+
+.button a {
+  color: var(--primary-light);
+}
+
+.button a:hover {
+  color: var(--secondary);
 }

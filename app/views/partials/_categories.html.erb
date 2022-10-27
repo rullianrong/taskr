@@ -1,4 +1,7 @@
-<h3>Categories:</h3>
+<div class="d-flex align-items-center gap-1">
+    <h3>Categories</h3>
+    <a href="<%= new_category_path(@category) %>" class="button plus-icon d-flex align-itemc-center"><i class="fa-solid fa-plus"></i></a>
+</div>
 <% current_user.categories.each do |category| %>
     <div class="d-flex gap-1">
         <div class="d-flex gap-1 ">
