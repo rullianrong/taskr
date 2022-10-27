@@ -1,0 +1,8 @@
+<div>
+    <h3>All Tasks</h3>
+</div>
+<% current_user.tasks.each do |task| %>
+    <div>
+       <a href="/tasks/<%= task.id %>">&bull; <%= task.body%></a>
+    </div>
+<% end %>

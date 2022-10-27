@@ -1,17 +1,10 @@
-<div class="d-flex align-items-center gap-1">
+<div class="d-flex align-items-center gap-2">
     <h3>Categories</h3>
-    <a href="<%= new_category_path(@category) %>" class="button plus-icon d-flex align-itemc-center"><i class="fa-solid fa-plus"></i></a>
+    <a href="<%= new_category_path(@category) %>" class="button plus-icon d-flex align-items-center" title="Add Category"><i class="fa-solid fa-plus"></i></a>
 </div>
 <% current_user.categories.each do |category| %>
     <div class="d-flex gap-1">
-        <div class="d-flex gap-1 ">
-            <a href="<%= edit_category_path(category) %>">
-                <i class="fa-regular fa-pen-to-square"></i>
-            </a>
-            <a data-confirm="Are you sure this category?" rel="nofollow" data-method="delete" href="<%= category_path(category) %>">
-                <i class="fa-regular fa-trash-can"></i>
-            </a>
-        </div>
-        |<%= link_to category.title, category %>
+        
+        <%= link_to category.title, category %>
     </div>
 <% end %>

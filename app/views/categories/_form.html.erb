@@ -1,6 +1,5 @@
 <%= form_with(model: category) do |form| %>
 <div class="container content content-lgn">
-  <%= link_to 'Back', categories_path %>
   <% if category.errors.any? %>
     <div class="alert alert-danger alert-dismissible fade show" role="alert">
         <% category.errors.each do |error| %>

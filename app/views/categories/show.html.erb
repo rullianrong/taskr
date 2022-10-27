@@ -1,12 +1,22 @@
-<p id="notice"><%= notice %></p>
-<%= link_to 'Categories', categories_path %> |
-<%= link_to 'Tasks', tasks_path %>
+<div class="container mb-3 d-flex justify-content-between">
+  <button type="button" class="button">
+      <%= link_to "All Tasks", tasks_path %>
+  </button>
+  <button type="button" class="button">
+      <%= link_to "Add Task", new_task_path %>
+  </button>
+</div>
 
-<h1>
-  <%= @category.title %>
-</h1>
-<%= link_to 'Edit', edit_category_path(@category) %> 
+<div class="container content">
 
-<% @category.todos.each do |todo| %>
-  <%= render 'tasks/task', task: todo.task %>
-<% end %>
+  <div class="row">
+    <div class="col-3 category">
+      <%= render 'partials/categories' %>
+    </div>
+    <div class="col-5 task">
+      <%= render 'categories/categorized_tasks' %>
+    </div>
+  </div>
+</div>
+
+

@@ -1,0 +1,21 @@
+<div class="d-flex align-items-center gap-2">
+    <h3><%= @category.title %></h3>
+    <div class="d-flex gap-1 ">
+    <a href="<%= edit_category_path(@category) %>" class="button plus-icon d-flex align-items-center"><i class="fa-regular fa-pen-to-square"></i>
+    </a>
+    
+    <a data-confirm="Are you sure this category?" rel="nofollow" data-method="delete" href="<%= category_path(@category) %> " title="Delete" class="button plus-icon d-flex align-items-center">
+        <i class="fa-regular fa-trash-can"></i>
+    </a>
+</div>
+</div>
+<% if @category.todos.empty? %>
+<div>
+    Hmmm it's empty. Add some tasks using this category.
+</div>
+<% end %>   
+<% @category.todos.each do |todo| %>
+    <div>
+    <a href="/tasks/<%= todo.task.id %>">&bull; <%= todo.task.body%></a>
+    </div>
+<% end %>

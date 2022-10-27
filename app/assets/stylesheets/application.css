@@ -123,20 +123,37 @@ li {
 }
 
 .category a {
+  display: inline-block;
+  width: 100%;
   color: var(--primary);
   border-radius: 3px;
   padding: 3px 5px;
   transition: background-color .3s;
 }
 
-.category a:hover {
+.category a:hover, .task a:hover {
   color: var(--secondary);
+}
+
+/* tasks */
+.task a {
+  text-decoration: ;
+  display: inline-block;
+  width: 100%;
+  color: var(--secondary);
+  border-radius: 3px;
+  padding: 3px 5px;
+  transition: background-color .3s;
   background-color: var(--grey);
+  margin-bottom: 3px;
+}
+
+.category h3, .task h3{
+  text-align: center;
 }
 
 .plus-icon {
-  font-size: 1.2rem;
-  height: auto;
+  font-size: 1rem;
  }
 
  
@@ -160,4 +177,11 @@ li {
 
 .button a:hover {
   color: var(--secondary);
+}
+
+.category .button, .task .button {
+  width: auto;
+  color: var(--primary);
+  background-color: var(--light);
+  border: 2px solid var(--primary-light);
 }
