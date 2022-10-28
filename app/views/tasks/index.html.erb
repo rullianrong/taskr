@@ -1,22 +1,16 @@
-<div class="container mb-3 d-flex justify-content-between">
-    <button type="button" class="button">
-        <%= link_to "All Tasks", tasks_path %>
-    </button>
-    <button type="button" class="button">
-        <%= link_to "Add Task", new_task_path %>
-    </button>
-  </div>
-<div class="container content">
+<%= render 'partials/navbar' %>
 
+<div class="container content">
   <div class="row">
-    <div class="col-3 category">
+    <div class="col-2 category">
       <%= render 'partials/categories' %>
     </div>
-    <div class="col-5 task">
+    <div class="col-8 task task-home">
       <%= render 'partials/tasks' %>
     </div>
-    <div class="col-4 task">
-      <h3>Tasks due for today</h3>
+    <div class="col-2 due">
+      <h3>Due Today</h3>
+      <%= render 'partials/tasks_today' %>
     </div>
   </div>
 </div>

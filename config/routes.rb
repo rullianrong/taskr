@@ -11,8 +11,6 @@ Rails.application.routes.draw do
   end
   
   resources :tasks
-  resources :categories do
-    resources :tasks
-  end
+  resources :categories
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

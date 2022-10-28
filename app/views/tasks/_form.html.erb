@@ -1,32 +1,30 @@
 <%= form_with(model: task) do |form| %>
+<div class="container content content-lgn">
   <% if task.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(task.errors.count, "error") %> prohibited this task from being saved:</h2>
-
-      <ul>
+    <div class="alert alert-danger alert-dismissible fade show" role="alert">
         <% task.errors.each do |error| %>
-          <li><%= error.full_message %></li>
+          <%= error.full_message %>
         <% end %>
-      </ul>
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label 'Task' %>
-    <%= form.text_field :body %>
+  <div class="field mb-3">
+    <%= form.label 'Task', class: "form-label" %>
+    <%= form.text_field :body, class: "form-control" %>
   </div>
 
-  <div class="field">
-    <%= form.label "Finish before:" %>
-    <%= form.date_select :finish_before %>
+  <div class="field mb-3">
+    <%= form.label "Categories", class: "form-label" %>
+    <%= form.text_field :categories, value: task.categories.map(&:title).join(','), class: "form-control" %>
   </div>
 
-  <div>
-    <%= form.label "Categories:" %>
-    <%= form.text_field :categories, value: task.categories.map(&:title).join(',') %>
+    <div class="field mb-4">
+    <%= form.label "Finish before", class: "form-label" %><br>
+    <%= form.date_select :finish_before, order: [:month, :day, :year] %>
   </div>
 
-  <div class="actions">
-    <%= form.submit %>
+  <div class="actions d-flex flex-column justify-content-center align-items-center">
+    <%= form.submit 'Set Task', class: "button action-button" %>
+  </div>
   </div>
 <% end %>

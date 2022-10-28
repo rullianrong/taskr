@@ -1,5 +1,5 @@
 class Task < ApplicationRecord
-  validates :body, presence: true
+  validates :body, presence: { message: "of the task can't be blank" }
 
   belongs_to :user
   has_many :todos, dependent: :destroy

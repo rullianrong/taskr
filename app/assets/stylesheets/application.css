@@ -29,16 +29,27 @@ header {
     max-height: 100px;
     padding-left: 80px;
     padding-right: 100px;
+    padding-top: 5px;
+    padding-bottom: 5px;
  }
 
 h3 {
    color: var(--secondary);
 }
 
+p {
+  margin-bottom: 0;
+}
+
 a {
 text-decoration: none;
 font-size: .9rem;
+color: var(--primary-light)
 }
+
+a:hover {
+  color: var(--secondary)
+  }
 
 ul {
   margin-bottom: 0;
@@ -47,6 +58,14 @@ ul {
 
 li {
   list-style: none;
+}
+
+select {
+  border: 1px solid #ced4da;
+  border-radius: 0.375rem;
+  padding: 5px;
+  cursor: pointer;
+  font-size: .8rem;
 }
 
 .logo {
@@ -60,7 +79,6 @@ li {
     transition: transform .3s;
  }
  .nav-link:hover {
-    color: #8d021f;
     transform: scale(1.2)
  }
 
@@ -70,8 +88,8 @@ li {
 
  .content {
     background-color: var(--light);
-    padding: 30px;
-   border-radius: 10px;
+    padding: 20px 30px;
+    border-radius: 10px;
  }
 
  
@@ -118,33 +136,28 @@ li {
 }
 
 /* categories */
-.category {
-  border-right: 2px solid var(--secondary);
-}
 
 .category a {
   display: inline-block;
   width: 100%;
-  color: var(--primary);
+  color: var(--grey);
   border-radius: 3px;
   padding: 3px 5px;
-  transition: background-color .3s;
+  margin-bottom: 3px;
+  transition: background-color .2s;
+  background-color: var(--primary);
 }
 
 .category a:hover, .task a:hover {
   color: var(--secondary);
+  background-color: var(--light);
 }
-
 /* tasks */
+
 .task a {
-  text-decoration: ;
   display: inline-block;
-  width: 100%;
   color: var(--secondary);
-  border-radius: 3px;
   padding: 3px 5px;
-  transition: background-color .3s;
-  background-color: var(--grey);
   margin-bottom: 3px;
 }
 
@@ -161,7 +174,6 @@ li {
   background-color: var(--secondary);
   border: 2px solid var(--secondary);
   font-weight: 500;
-  height: 30px;
   border-radius: 3px;
   transition: background-color .3s, border .3s;
 }
@@ -184,4 +196,40 @@ li {
   color: var(--primary);
   background-color: var(--light);
   border: 2px solid var(--primary-light);
+}
+
+.task a.button:hover {
+  border: 2px solid var(--primary-light);
+}
+
+a.each-task {
+  width: 150px;
+  height: 100px;
+  padding: 10px;
+  background-color: var(--grey);
+  border: 1px solid var(--grey);
+  border-radius: 3px;
+  transition: background-color .2s;
+}
+
+a.each-task:hover {
+  cursor: pointer;
+  border: 1px solid var(--grey);
+  background-color: var(--light);
+}
+
+a.each-task {
+  color: var(--primary-light);
+}
+
+a.each-task>p {
+  margin-bottom: 0;
+}
+
+.due a {
+  background-color: var(--grey);
+  color: var(--primary-light);
+  padding: 5px;
+  padding-left: 20px;
+  border: 1px solid var(--grey)
 }

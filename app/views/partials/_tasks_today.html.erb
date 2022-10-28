@@ -1,0 +1,7 @@
+<% current_user.tasks.where(finish_before: Date.today).each do |task| %>
+    <div class="category">
+       <a href="/tasks/<%= task.id %>">
+        <%= task.body%>
+       </a>
+    </div>
+<% end %>
