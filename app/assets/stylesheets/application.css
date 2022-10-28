@@ -22,6 +22,7 @@
  }
 body {
    background-color: var(--secondary);
+   font-family: 'Poppins', sans-serif;
 }
 
 header {
@@ -144,13 +145,16 @@ select {
   border-radius: 3px;
   padding: 3px 5px;
   margin-bottom: 3px;
+  border: 1px solid var(--primary);
   transition: background-color .2s;
   background-color: var(--primary);
+  word-wrap: break-word;
 }
 
 .category a:hover, .task a:hover {
   color: var(--secondary);
   background-color: var(--light);
+  border: 1px solid var(--primary)
 }
 /* tasks */
 
@@ -161,7 +165,7 @@ select {
   margin-bottom: 3px;
 }
 
-.category h3, .task h3{
+.category h3, .task h3, .due h3{
   text-align: center;
 }
 
@@ -219,17 +223,33 @@ a.each-task:hover {
 }
 
 a.each-task {
-  color: var(--primary-light);
+  color: var(--primary);
 }
 
 a.each-task>p {
-  margin-bottom: 0;
+  margin-bottom: 10px;
+}
+
+.task-body {
+  height: 100%;
+  overflow: scroll;
+  word-wrap: break-word;
+  -ms-overflow-style: none;  /* hide overflow scrollbar IE and Edge */
+  scrollbar-width: none;  /* hide overflow scrollbar Firefox */
+}
+
+/* hide overflow scrollbar */
+.task-body::-webkit-scrollbar {
+  display: none;
 }
 
 .due a {
   background-color: var(--grey);
-  color: var(--primary-light);
+  color: var(--primary);
   padding: 5px;
-  padding-left: 20px;
   border: 1px solid var(--grey)
+}
+
+#category-add-btn:hover {
+  border: 2px solid var(--primary-light);
 }

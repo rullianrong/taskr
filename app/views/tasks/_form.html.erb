@@ -20,7 +20,7 @@
 
     <div class="field mb-4">
     <%= form.label "Finish before", class: "form-label" %><br>
-    <%= form.date_select :finish_before, order: [:month, :day, :year] %>
+    <%= form.date_select :finish_before, order: [:month, :day, :year], :include_blank => true %>
   </div>
 
   <div class="actions d-flex flex-column justify-content-center align-items-center">

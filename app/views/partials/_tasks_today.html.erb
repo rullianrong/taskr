@@ -1,3 +1,9 @@
+
+<% if current_user.tasks.where(finish_before: Date.today).empty? %>
+    <div class="d-flex justify-content-center">
+        <p>No task due today</p>
+    </div>
+<% end %>
 <% current_user.tasks.where(finish_before: Date.today).each do |task| %>
     <div class="category">
        <a href="/tasks/<%= task.id %>">

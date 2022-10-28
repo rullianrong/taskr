@@ -1,5 +1,6 @@
 class Category < ApplicationRecord
   validates :title, presence: true
+  validates_length_of :title, :maximum => 25
 
   belongs_to :user
   has_many :todos, dependent: :destroy

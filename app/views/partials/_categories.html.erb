@@ -1,9 +1,16 @@
 <div class="d-flex align-items-center gap-2 justify-content-center">
     <h3>Categories</h3>
-    <a href="<%= new_category_path(@category) %>" class="button plus-icon d-flex align-items-center" title="Add Category"><i class="fa-solid fa-plus"></i></a>
+    <% unless current_user.categories.empty?%>
+        <a href="<%= new_category_path(@category) %>" id="category-add-btn" class="button plus-icon d-flex align-items-center" title="Add Category"><i class="fa-solid fa-plus"></i></a>
+    <% end %>
 </div>
+<% if current_user.categories.empty? %>
+    <div class="d-flex justify-content-center">
+        <%= link_to 'Add a category', new_category_path(@category), style: "text-align: center" %>
+    </div>
+<% end %>
 <% current_user.categories.each do |category| %>
     <div class="d-flex gap-1">
-        <%= link_to category.title, category %>
+        <%= link_to category.title, category, style: "padding-left: 20px" %>
     </div>
 <% end %>
