@@ -11,10 +11,14 @@
     </div>
 
   <% if @task.finish_before %>
-  <p>
-    Finish before:
-    <%= @task.finish_before.strftime('%b/%d/%Y') %>
-  </p>
+    <% if @task.finish_before < Date.today %>
+      <p style="color: var(--primary);">Past Due Date: <%= @task.finish_before.strftime('%b / %d / %Y') %>
+    <% else %>
+      <p>
+        Finish before:
+        <%= @task.finish_before.strftime('%b/%d/%Y') %>
+      </p>
+    <% end %>
   <% end %>
 
   <p style="font-size: 2rem; word-wrap: break-word" class="mb-3">
