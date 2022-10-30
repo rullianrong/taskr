@@ -10,7 +10,7 @@
       </a>
     </div>
 
-  <% if @task.finish_before != nil %>
+  <% if @task.finish_before %>
   <p>
     Finish before:
     <%= @task.finish_before.strftime('%b/%d/%Y') %>
@@ -25,7 +25,7 @@
   <span>Categories:</span>
   <div class="d-flex gap-1">
     <% @task.categories.each do |category|%>
-      <%= link_to category, class:"button px-1" do %>
+      <%= link_to category, class:"button px-1 tags" do %>
           <%= category.title%>
       <% end %> 
     <% end %>

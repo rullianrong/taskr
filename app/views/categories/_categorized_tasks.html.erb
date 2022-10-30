@@ -19,8 +19,13 @@
     <% @category.todos.each do |todo| %>
         <div>
             <a href="/tasks/<%= todo.task.id %>" class="each-task d-flex flex-column">
-                <% if todo.task.finish_before != nil %>
-                    <p style="font-size: .5rem;color: var(--secondary);">Due Date: <%= todo.task.finish_before.strftime('%b / %d / %Y') %></p>
+                <% if todo.task.finish_before %>
+                    <% if todo.task.finish_before < Date.today %>
+                    <p style="font-size: .5rem;color: var(--primary);">Past Due Date: <%= todo.task.finish_before.strftime('%b / %d / %Y') %>
+                    <% else %>
+                    <p style="font-size: .5rem;color: var(--secondary);">Due Date: <%= todo.task.finish_before.strftime('%b / %d / %Y') %>
+                    </p>
+                    <% end %>
                 <% else %>
                     <p style="font-size: .5rem;color: var(--secondary);">Due Date: None</p>
                 <% end %>

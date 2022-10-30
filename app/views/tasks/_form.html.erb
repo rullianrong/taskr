@@ -16,6 +16,9 @@
   <div class="field mb-3">
     <%= form.label "Categories", class: "form-label" %>
     <%= form.text_field :categories, value: task.categories.map(&:title).join(','), class: "form-control" %>
+    <div class="form-text">
+      You can add multiple categories by separating each category with a comma( , )
+    </div>
   </div>
 
     <div class="field mb-4">

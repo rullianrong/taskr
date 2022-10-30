@@ -223,7 +223,7 @@ a.each-task:hover {
 }
 
 a.each-task {
-  color: var(--primary);
+  color: var(--secondary);
 }
 
 a.each-task>p {
@@ -252,4 +252,12 @@ a.each-task>p {
 
 #category-add-btn:hover {
   border: 2px solid var(--primary-light);
+}
+
+.tags {
+  color: var(--light);
+}
+
+.tags:hover {
+  color: var(--light)
 }

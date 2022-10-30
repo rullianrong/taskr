@@ -3,7 +3,7 @@ class TasksController < ApplicationController
   
   # GET /tasks
   def index
-    @tasks = current_user.tasks
+    @tasks = current_user.tasks.order(created_at: :desc)
   end
 
   # GET /tasks/1

@@ -9,7 +9,7 @@
         <%= link_to 'Add a category', new_category_path(@category), style: "text-align: center" %>
     </div>
 <% end %>
-<% current_user.categories.each do |category| %>
+<% current_user.categories.order(created_at: :desc).each do |category| %>
     <div class="d-flex gap-1">
         <%= link_to category.title, category, style: "padding-left: 20px" %>
     </div>
