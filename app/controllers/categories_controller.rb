@@ -4,6 +4,7 @@ class CategoriesController < ApplicationController
   # GET /categories
   def index
     @categories = current_user.categories
+    redirect_to :authenticated_root
   end
 
   # GET /categories/1
