@@ -23,4 +23,6 @@
     </div>
 <% end %>
 </header>
-<%= render 'partials/messages' %>
+<% if flash.notice %>
+    <%= render 'partials/messages' %>
+<% end %>
