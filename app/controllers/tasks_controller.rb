@@ -25,7 +25,7 @@ class TasksController < ApplicationController
     create_or_delete_tasks_categories(@task, params[:task][:categories])
 
     if @task.save
-      redirect_to action: 'index'
+      redirect_to tasks_url, notice: 'Task successfully added.'
     else
       render :new
     end

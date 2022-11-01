@@ -2,6 +2,7 @@ require "test_helper"
 
 class TasksControllerTest < ActionDispatch::IntegrationTest
   setup do
+    sign_in users(:user_1)
     @task = tasks(:one)
   end
 
@@ -20,7 +21,7 @@ class TasksControllerTest < ActionDispatch::IntegrationTest
       post tasks_url, params: { task: { body: @task.body, checked: @task.checked, finish_before: @task.finish_before, user_id: @task.user_id } }
     end
 
-    assert_redirected_to task_url(Task.last)
+    assert_redirected_to tasks_url
   end
 
   test "should show task" do

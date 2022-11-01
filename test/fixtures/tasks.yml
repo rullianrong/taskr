@@ -4,10 +4,10 @@ one:
   body: MyString
   finish_before: 2022-10-21
   checked: false
-  user: one
+  user: user_1
 
 two:
   body: MyString
   finish_before: 2022-10-21
   checked: false
-  user: two
+  user: user_2
