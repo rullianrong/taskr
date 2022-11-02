@@ -2,13 +2,14 @@
 
 <div class="container content content-lgn">
   <div class="d-flex gap-1 task  mb-2">
-    <a href="<%= edit_task_path(@task) %>" class="button plus-icon d-flex align-items-center" title="Edit Task"><i class="fa-regular fa-pen-to-square"></i>
-      </a> 
+    <a href="<%= edit_task_path(@task) %>" class="button plus-icon d-flex align-items-center" title="Edit Task">
+      <i class="fa-regular fa-pen-to-square"></i>
+    </a> 
 
     <a data-confirm="Confirm deleting this task?" rel="nofollow" data-method="delete" href="<%= task_path(@task) %> " title="Delete" class="button plus-icon d-flex align-items-center" title="Delete">
-          <i class="fa-regular fa-trash-can"></i>
-      </a>
-    </div>
+      <i class="fa-regular fa-trash-can"></i>
+    </a>
+  </div>
 
   <% if @task.finish_before %>
     <% if @task.finish_before < Date.today %>
@@ -26,16 +27,14 @@
   </p>
 
   <% unless @task.categories.empty? %>
-  <span>Categories:</span>
-  <div class="d-flex gap-1">
-    <% @task.categories.each do |category|%>
-      <%= link_to category, class:"button px-1 tags" do %>
-          <%= category.title%>
-      <% end %> 
-    <% end %>
-  </div>
+    <span>Categories:</span>
+    <div class="d-flex gap-1">
+      <% @task.categories.each do |category|%>
+        <%= link_to category, class:"button px-1 tags" do %>
+            <%= category.title%>
+        <% end %> 
+      <% end %>
+    </div>
   <% end %>
-  
-
 </div>
 

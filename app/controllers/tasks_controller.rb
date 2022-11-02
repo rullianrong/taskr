@@ -49,10 +49,13 @@ class TasksController < ApplicationController
   end
 
   private
+    # method for creating task with categories
     def create_or_delete_tasks_categories(task, categories)
       task.todos.destroy_all
       categories = categories.strip.split(',')
 
+      # search the users categories if each category passed to a task already exist 
+      # then returns it, else it will create a new one and add it to the current task categories
       categories.each do |category|
         task.categories << current_user.categories.find_or_create_by(title: category.titleize.strip)
       end

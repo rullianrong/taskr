@@ -1,10 +1,10 @@
 class CategoriesController < ApplicationController
-  before_action :set_category, only: [:show, :edit, :update, :destroy]
+  before_action :set_category, only: [:show, :edit, :update, :destroy, :create_task]
 
   # GET /categories
   def index
     @categories = current_user.categories
-    redirect_to :authenticated_root
+    redirect_to :authenticated_root # will redirect to 'tasks#index'
   end
 
   # GET /categories/1
@@ -20,9 +20,17 @@ class CategoriesController < ApplicationController
   def edit
   end
 
+  def create_task
+    
+  end
+
   # POST /categories
   def create
-    params[:category][:title] = params[:category][:title].titleize.strip
+    # overrides params to make title capitalize and remove whitespaces
+    params[:category][:title] = params[:category][:title].titleize.strip 
+
+    # search the Category records if the title provided by the user already exists, 
+    # it will return and assign it if it does, otherwise it will create a new record.
     @category = current_user.categories.find_or_create_by(category_params)
 
     if @category.save
@@ -44,7 +52,7 @@ class CategoriesController < ApplicationController
   # DELETE /categories/1
   def destroy
     @category.destroy
-    redirect_to tasks_path, notice: 'Category deleted.'
+    redirect_to :authenticated_root, notice: 'Category deleted.'
   end
 
   private
