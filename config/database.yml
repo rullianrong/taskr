@@ -80,7 +80,9 @@ test:
 # for a full overview on how database connection configuration can be specified.
 #
 production:
-  <<: *default
+  adapter: postgresql
+  encoding: unicode
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
   database: railway
   username: postgres
   password: xtxRmN3sxs4nV0lc9MHY
