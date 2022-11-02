@@ -81,6 +81,8 @@ test:
 #
 production:
   <<: *default
-  database: taskr_production
-  username: taskr
-  password: <%= ENV['TASKR_DATABASE_PASSWORD'] %>
+  database: railway
+  username: postgres
+  password: xtxRmN3sxs4nV0lc9MHY
+  host: containers-us-west-69.railway.app
+  port: 5835
