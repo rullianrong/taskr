@@ -1,10 +1,13 @@
-<header class="d-flex flex-wrap align-items-center justify-content-between mb-2">
+<header class="d-flex flex-wrap align-items-center justify-content-between mb-3">
     <a href="<%= user_signed_in? ? authenticated_root_path : unauthenticated_root_path %>" class="d-flex align-items-center col-md-3 mb-2 mb-md-0 text-dark text-decoration-none">
         <%= image_tag "taskr_logo.png", class: "logo" %>
     </a>
 
     <% if user_signed_in? %>
-        <p style="color: #8d021f;">Welcome, <%= current_user.email.split("@").first.capitalize %>!</p>
+        <div class="d-flex justify-content-center flex-column gap-1">
+            <p style="color: #8d021f; text-align: center;">Welcome, <%= current_user.email.split("@").first.capitalize %>!</p>
+            <%= render 'partials/navbar' %>
+        </div>
     <% end %>
     
     <% if user_signed_in? %>

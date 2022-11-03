@@ -1,17 +1,20 @@
 <div class="d-flex align-items-center gap-2 justify-content-center">
     <h3><%= @category.title %></h3>
     <div class="d-flex gap-1 ">
-        <a href="<%= edit_category_path(@category) %>" class="button plus-icon d-flex align-items-center" title="Edit">
+        <a href="<%= category_tasks_new_path(@category) %>" id="category-add-btn" class="button plus-icon d-flex align-items-center" title="Add Task">
+            <i class="fa-solid fa-plus"></i>
+        </a>
+        <a href="<%= edit_category_path(@category) %>" class="button plus-icon d-flex align-items-center" title="Edit Category">
             <i class="fa-regular fa-pen-to-square"></i>
         </a>
         
-        <a data-confirm="Confirm deleting '<%= @category.title %>' category?" rel="nofollow" data-method="delete" href="<%= category_path(@category) %> " title="Delete" class="button plus-icon d-flex align-items-center" title="Delete">
+        <a data-confirm="Confirm deleting '<%= @category.title %>' category?" rel="nofollow" data-method="delete" href="<%= category_path(@category) %> " title="Delete" class="button plus-icon d-flex align-items-center" title="Delete Category">
             <i class="fa-regular fa-trash-can"></i>
         </a>
     </div>
 </div>
 
-<div class="d-flex flex-wrap gap-1 mx-auto justify-content-center">
+<div class="d-flex flex-wrap gap-2 mx-auto justify-content-center">
     <% if @category.todos.empty? %>
         <div style="text-align: center; width: 100%">
             Hmmm it's empty. Add some tasks using this category.

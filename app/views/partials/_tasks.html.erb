@@ -1,8 +1,11 @@
-<div>
+<div class="d-flex align-items-center gap-2 justify-content-center">
     <h3>All Tasks</h3>
+    <a href="<%= new_task_path(@task) %>" id="category-add-btn" class="button plus-icon d-flex align-items-center" title="Add Task">
+        <i class="fa-solid fa-plus"></i>
+    </a>
 </div>
 
-<div class="d-flex flex-wrap gap-1 mx-auto justify-content-center">
+<div class="d-flex flex-wrap gap-2 mx-auto justify-content-center">
     <% if @tasks.empty? %>
         <p style="text-align: center; width: 100%">You do not have any task, add some by clicking the 'Add Task' button</p>
     <% end %>

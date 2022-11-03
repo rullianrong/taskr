@@ -1,21 +1,12 @@
-<div class="container mb-3 d-flex justify-content-center gap-1 align-items-center">
-  <button type="button" class="button">
-      <%= link_to "Home", tasks_path %>
-  </button> 
-  <span style="color: #fefefe;">|</span>
-  <button type="button" class="button">
-      <%= link_to "Add Task", new_task_path %>
-  </button>
-</div>
-
-<div class="container content">
-
-  <div class="row">
-    <div class="col-2 category">
+<div class="container content main-container">
+  <div class="row justify-content-around">
+    <div class="col-2 category inner-container">
       <%= render 'partials/categories' %>
     </div>
-    <div class="col-8 task">
+    <div class="col-7 task inner-container">
       <%= render 'categories/categorized_tasks' %>
+    </div>
+    <div class="col-2">
     </div>
   </div>
 </div>

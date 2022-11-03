@@ -1,5 +1,6 @@
 class TasksController < ApplicationController
   before_action :set_task, only: [:show, :edit, :update, :destroy]
+  before_action :set_category, only: [:new_categorized_task]
   
   # GET /tasks
   def index
@@ -12,6 +13,10 @@ class TasksController < ApplicationController
 
   # GET /tasks/new
   def new
+    @task = current_user.tasks.build
+  end
+
+  def new_categorized_task
     @task = current_user.tasks.build
   end
 
@@ -64,6 +69,10 @@ class TasksController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_task
       @task = current_user.tasks.find(params[:id])
+    end
+
+    def set_category
+      @category = current_user.categories.find(params[:category_id])
     end
 
     # Only allow a list of trusted parameters through.

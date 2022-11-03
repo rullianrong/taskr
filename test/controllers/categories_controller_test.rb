@@ -44,6 +44,6 @@ class CategoriesControllerTest < ActionDispatch::IntegrationTest
       delete category_url(@category)
     end
 
-    assert_redirected_to tasks_url
+    assert_redirected_to :authenticated_root
   end
 end
