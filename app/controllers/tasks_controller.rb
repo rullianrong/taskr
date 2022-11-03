@@ -1,10 +1,10 @@
 class TasksController < ApplicationController
   before_action :set_task, only: [:show, :edit, :update, :destroy]
-  before_action :set_category, only: [:new_categorized_task]
+  before_action :set_category, only: [:new_categorized_task, :create_categorized_task]
   
   # GET /tasks
   def index
-    @tasks = current_user.tasks.order(created_at: :desc)
+    @tasks = current_user.tasks
   end
 
   # GET /tasks/1
@@ -18,6 +18,17 @@ class TasksController < ApplicationController
 
   def new_categorized_task
     @task = current_user.tasks.build
+  end
+
+  def create_categorized_task
+    @task = current_user.tasks.build(task_params.except(:categories))
+    create_or_delete_tasks_categories(@task, params[:task][:categories])
+
+    if @task.save
+      redirect_to category_url(@category), notice: 'Task successfully added.'
+    else
+      render :new_categorized_task
+    end
   end
 
   # GET /tasks/1/edit
