@@ -67,7 +67,7 @@ class TasksController < ApplicationController
   private
     # method for creating task with categories
     def create_or_delete_tasks_categories(task, categories)
-      task.todos.destroy_all
+      # task.todos.destroy_all
       categories = categories.strip.split(',')
 
       # search the users categories if each category passed to a task already exist 

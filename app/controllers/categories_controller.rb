@@ -2,10 +2,10 @@ class CategoriesController < ApplicationController
   before_action :set_category, only: [:show, :edit, :update, :destroy]
 
   # GET /categories
-  def index
-    @categories = current_user.categories
-    redirect_to :authenticated_root # will redirect to 'tasks#index'
-  end
+  # def index
+  #   @categories = current_user.categories
+  #   redirect_to :authenticated_root # will redirect to 'tasks#index'
+  # end
 
   # GET /categories/1
   def show
@@ -22,7 +22,7 @@ class CategoriesController < ApplicationController
 
   # POST /categories
   def create
-    # overrides params to make title capitalize and remove whitespaces
+    # modify params to capitalize title and remove whitespaces
     params[:category][:title] = params[:category][:title].titleize.strip 
 
     # search the Category table if the category provided by the user already exists, 

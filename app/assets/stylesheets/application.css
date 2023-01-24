@@ -28,6 +28,7 @@ body {
 
 header {
     background-color: var(--primary);
+    justify-content: space-between;
     max-height: 100px;
     padding-left: 80px;
     padding-right: 100px;
@@ -263,4 +264,15 @@ a.each-task>p {
 .main-container {
   background-color: var(--secondary);
   padding-top: 0;
+}
+
+@media only screen and (max-width: 420px) {
+  header {
+    max-height: 150px;
+    justify-content: center;
+  }
+
+  .content-lgn {
+    max-width: 350px;
+  }
 }

@@ -3,11 +3,12 @@ require "application_system_test_case"
 class CategoriesTest < ApplicationSystemTestCase
   setup do
     @category = categories(:one)
+    @task = tasks(:one)
   end
 
   test "visiting the index" do
-    visit categories_url
-    assert_selector "h1", text: "Categories"
+    visit tasks_url
+    assert_selector "h3", text: "All Tasks"
   end
 
   test "creating a Category" do
@@ -19,7 +20,6 @@ class CategoriesTest < ApplicationSystemTestCase
     click_on "Create Category"
 
     assert_text "Category was successfully created"
-    click_on "Back"
   end
 
   test "updating a Category" do
